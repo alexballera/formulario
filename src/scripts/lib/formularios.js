@@ -1,0 +1,29 @@
+import $ from 'jquery'
+
+var template = `
+<div class="formulario">
+  <form name="formulario" class="formulario__form" id="formulario" action="mail.php" method="post" >
+      <div class="formulario__item">
+        <label for="name"></label>
+        <input type="text" placeholder="Nombre" name="name" required="required" id="name">
+      </div>
+      <div class="formulario__item">
+        <label for="email"></label>
+        <input type="email" placeholder="Email" name="email" required="required" id="email">
+      </div>
+      <div class="formulario__item">
+        <label for="phone"></label>
+        <input type="tel"  placeholder="Teléfono" name="phone" id="phone">
+      </div>
+      <div class="formulario__item">
+        <label for="message"></label>
+        <textarea id="message" cols="30" rows="10"  placeholder="Mensaje" name="message"></textarea>
+      </div>
+      <div class="formulario__item">
+        <button type="submit" class="submit" id="submit">Enviar</button>
+      </div>
+  </form>
+</div>`
+export default () => {
+  $('body').prepend(template)
+}
