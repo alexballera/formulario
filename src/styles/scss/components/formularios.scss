@@ -6,6 +6,18 @@
     >.formulario__item{
       box-sizing: border-box;
       margin: 5px;
+      &.has-error{
+        & input[type="email"],
+        & input[type="text"],
+        & input[type="tel"]{
+          background-color: pink;
+        }        
+      }
+      >.help-block{
+        padding: 0.25rem;
+        margin-top: 5px;
+        color: red;
+      }
     }
     & input[type="email"],
     & input[type="text"],
