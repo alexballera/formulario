@@ -8,6 +8,10 @@ var template = `
         <label for="name"></label>
         <input type="text" placeholder="Nombre" name="name" id="name">
       </div>
+      <div id="lastname-group" class="formulario__item">
+        <label for="lastname"></label>
+        <input type="text" placeholder="Apellido" name="lastname" id="lastname">
+      </div>
       <div id="email-group" class="formulario__item">
         <label for="email"></label>
         <input type="email" placeholder="Email" name="email" id="email">
@@ -42,6 +46,7 @@ export default () => {
         // there are many ways to get this data using jQuery (you can use the class or id also)
         var formData = {
             'name'  : $('input[name=name]').val(),
+            'lastname'  : $('input[name=lastname]').val(),
             'email' : $('input[name=email]').val(),
             'phone' : $('input[name=phone]').val(),
             'msg'   : $('textarea[name=msg]').val()
