@@ -37,7 +37,7 @@ export default () => {
 
   $('#dialog').hide()
 
-  $('form').submit(function(event) {
+  $('#formulario').submit(function(event) {
 
     $('.form-group').removeClass('has-error'); // remove the error class
     $('.help-block').remove(); // remove the error text
@@ -88,16 +88,22 @@ export default () => {
 
                   // usually after form submission, you'll want to redirect
                   // window.location = '/thank-you'; // redirect a user to another page
+                  console.log(data.message)
                   $( "#dialog" ).dialog({
                     show: {
                       effect: "explode",
-                      duration: 1000
+                      duration: 700
                     },
                     hide: {
                       effect: "explode",
-                      duration: 1000
+                      duration: 700
                     }
                   });
+                  $('input#name').val('')
+                  $('input#lastname').val('')
+                  $('input#email').val('')
+                  $('input#phone').val('')
+                  $('textarea#msg').val('')
 
               }
 
