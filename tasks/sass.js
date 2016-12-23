@@ -41,6 +41,7 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('./build/styles'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(cssnano())
+    .pipe(gulp.dest('./src/styles'))
     .pipe(gulp.dest('./build/styles'))
     .pipe(gulp.dest('./public/styles'))
     .pipe(browserSync.reload(reloadOptions))

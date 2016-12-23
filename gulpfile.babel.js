@@ -8,7 +8,7 @@ sudo npm i -D babel-preset-latest babelify browser-sync browserify del gulp gulp
 */
 // Build
 gulp.task('build', ['copy'], () => {
-  gulp.start('build:html', 'build:scripts', 'build:images', 'inject', 'styles')
+  gulp.start('build:html', 'styles', 'scripts', 'images', 'inject')
 })
 
 // Default

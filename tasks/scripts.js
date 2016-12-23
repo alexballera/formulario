@@ -6,7 +6,7 @@ import uglify from 'gulp-uglify'
 import babelify from 'babelify'
 import rename from 'gulp-rename'
 
-gulp.task('build:scripts', () => {
+gulp.task('scripts', () => {
   var presets = {
     presets: 'latest'
   }

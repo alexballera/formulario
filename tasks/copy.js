@@ -3,8 +3,6 @@ import gulp from 'gulp'
 gulp.task('copy', () => {
   gulp.src('./src/index.html')
     .pipe(gulp.dest('./build'))
-  gulp.src(['./src/bower_components/**'])
-    .pipe(gulp.dest('./build/bower_components'))
   gulp.src('./src/styles/fonts/fonts-mfizz/**/*.*')
     .pipe(gulp.dest('./public/styles/fonts/fonts-mfizz'))
     .pipe(gulp.dest('./build/styles/fonts/fonts-mfizz'))

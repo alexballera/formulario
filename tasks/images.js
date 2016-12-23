@@ -6,7 +6,7 @@ import imageminSvgo from 'imagemin-svgo'
 import imageminOptipng from 'imagemin-optipng'
 import imageminJpegtran from 'imagemin-jpegtran'
 
-gulp.task('build:images', () => {
+gulp.task('images', () => {
   return gulp.src('./src/images/**')
     .pipe(cache(imagemin({
       optimizationLevel: 7,
