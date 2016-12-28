@@ -26,7 +26,8 @@ var template = `
         <button type="submit" class="submit" id="submit">Enviar</button>
       </div>
   </form>
-  <div class="alert"><span class="close">X</></div>
+  <div class="alert"><span class="close"><i class="fa fa-times fa-lg" aria-hidden="true"></i>
+</></div>
   `
 export default () => {
   var formularios = $('.formulario')
