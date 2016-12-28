@@ -63,7 +63,7 @@
     top: 20%;
     left: 35%;
     width: 30%;
-    background-color: grey;
+    background-color: rgba(0,0,0,0.7);
     color: white;
     padding: 1rem;
     font-size: 1.1rem;
@@ -72,9 +72,8 @@
     box-sizing: border-box;
     >.close{
       float: right;
-      color: black;
+      color: red;
       position: relative;
-      top: -140px;
     }
   }
 }

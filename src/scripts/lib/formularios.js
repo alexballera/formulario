@@ -25,10 +25,15 @@ var template = `
       <div class="formulario__item">
         <button type="submit" class="submit" id="submit">Enviar</button>
       </div>
-  </form>`
+  </form>
+  <div class="alert"><span class="close">X</></div>
+  `
 export default () => {
   var formularios = $('.formulario')
   formularios.append(template)
+  var alert = formularios.find('.alert')
+  var msgGracias = 'Tu mensaje ha sido enviado, a la brevedad posible uno de nuestros agentes se estará comunicando con usted'
+  alert.hide()
 
   var formulario = () => {
     $('#formulario').submit(function(event) {
@@ -84,7 +89,7 @@ export default () => {
                     // window.location = '/thank-you'; // redirect a user to another page
                     console.log(data.message)
 
-                    mensajeGracias('Tu mensaje ha sido enviado, a la brevedad posible uno de nuestros agentes se estará comunicando con usted')
+                    mensajeGracias(msgGracias)
 
                     $('input#name').val('')
                     $('input#lastname').val('')
@@ -112,29 +117,14 @@ export default () => {
   formulario()
 
   var mensajeGracias = (msg) => {
-    var div = document.createElement('div')
-    div.setAttribute('class', 'alert')
-    div.append(msg)
-
-    var close = document.createElement('span')
-    close.style.float = 'right'
-    close.innerHTML = 'X'
-    close.setAttribute('class', 'close')
-    close.style.display = 'none'
-
-    div.append(close)
-
-    formularios.append(div).show(slow)
+    alert.append(msg)
+    alert.show('slow')
     bind_close()
   }
 
   function bind_close() {
-    var elements = document.querySelectorAll('.close')
-    for (var i = elements.length -1; i >= 0; i--) {
-      var el = elements[i]
-      el.addEventListener('click', function() {
-        this.parentNode.style.display = 'none'
-      })
-    }
+    alert.find('.close').click(function() {
+      alert.hide('slow')
+    })
   }
 }
