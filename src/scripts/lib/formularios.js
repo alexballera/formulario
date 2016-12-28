@@ -120,10 +120,11 @@ export default () => {
     close.style.float = 'right'
     close.innerHTML = 'X'
     close.setAttribute('class', 'close')
+    close.style.display = 'none'
 
     div.append(close)
 
-    formularios.append(div)
+    formularios.append(div).show(slow)
     bind_close()
   }
 
