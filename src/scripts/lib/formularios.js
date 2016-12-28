@@ -1,5 +1,4 @@
 import $ from 'jquery'
-import queryUi from '../vendors/jquery-ui.js'
 
 var template = `
   <form name="formulario" class="formulario__form" id="formulario" method="post" action="formularios.php" >
@@ -28,8 +27,8 @@ var template = `
       </div>
   </form>`
 export default () => {
-  $('.formulario').prepend(template)
-  $('#dialog').hide()
+  var formularios = $('.formulario')
+  formularios.append(template)
 
   var formulario = () => {
     $('#formulario').submit(function(event) {
@@ -84,16 +83,9 @@ export default () => {
                     // usually after form submission, you'll want to redirect
                     // window.location = '/thank-you'; // redirect a user to another page
                     console.log(data.message)
-                    $( "#dialog" ).dialog({
-                      show: {
-                        effect: "explode",
-                        duration: 700
-                      },
-                      hide: {
-                        effect: "explode",
-                        duration: 700
-                      }
-                    });
+
+                    mensajeGracias('Tu mensaje ha sido enviado, a la brevedad posible uno de nuestros agentes se estará comunicando con usted')
+
                     $('input#name').val('')
                     $('input#lastname').val('')
                     $('input#email').val('')
@@ -119,4 +111,29 @@ export default () => {
   }
   formulario()
 
+  var mensajeGracias = (msg) => {
+    var div = document.createElement('div')
+    div.setAttribute('class', 'alert')
+    div.append(msg)
+
+    var close = document.createElement('span')
+    close.style.float = 'right'
+    close.innerHTML = 'X'
+    close.setAttribute('class', 'close')
+
+    div.append(close)
+
+    formularios.append(div)
+    bind_close()
+  }
+
+  function bind_close() {
+    var elements = document.querySelectorAll('.close')
+    for (var i = elements.length -1; i >= 0; i--) {
+      var el = elements[i]
+      el.addEventListener('click', function() {
+        this.parentNode.style.display = 'none'
+      })
+    }
+  }
 }
